@@ -1,0 +1,9 @@
+target/
+project/target
+
+.DS_Store
+Thumnail.db
+
+.idea/workspace.xml
+.idea/tasks.xml
+.idea/*.iws

@@ -59,7 +59,6 @@ trait EventEmitter {
         if(params.get("once").getOrElse(false).asInstanceOf[Boolean]){
           events = events.filterNot(_ == event)
         }
-//        listener(List(params))
         listener(data)
       }else if(eventType.matches("_")){
         var listener:(Any)=>Any = e.get("listener").get.asInstanceOf[(Any)=>Any];
@@ -67,17 +66,10 @@ trait EventEmitter {
         if(params.get("once").getOrElse(false).asInstanceOf[Boolean]){
           events = events.filterNot(_ == event)
         }
-//        listener(List(typ, params))
         listener(data)
       }
 
     }
-//    for(event <- events){
-//      var e:Map[String, Any] = event.asInstanceOf[Map[String, Any]];
-//      if(e.get(typ).isEmpty){
-//        remove_listener(e.get("id").get)
-//      }
-//    }
   }
   def once(typ:String, callback:(List[Any])=>Any) = {
     add_listener(typ, Map("once" -> true), callback);
